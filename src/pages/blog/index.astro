@@ -2,8 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import BlogCard from "../../components/BlogCard.astro";
 import { getCollection } from "astro:content";
-
-const base = import.meta.env.BASE_URL;
+import { withBase } from "../../lib/paths";
 
 const posts = await getCollection("blog", ({ data }) => !data.draft);
 ---
@@ -21,7 +20,7 @@ Blog
         <BlogCard
             title={post.data.title}
             description={post.data.description}
-            href={`${base}blog/${post.id}/`}
+            href={withBase(`blog/${post.id}/`)}
         />
     ))
 }

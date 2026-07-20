@@ -4,13 +4,12 @@ import { site } from "../data/site";
 import { education } from "../data/education";
 import { skillGroups } from "../data/skills";
 import { timeline } from "../data/timeline";
-
-const base = import.meta.env.BASE_URL;
+import { withBase } from "../lib/paths";
 ---
 
 <Layout title="Resume" description={`Resume — ${site.name}`}>
   <div class="mb-8 flex flex-wrap items-center justify-between gap-4 print:hidden">
-    <a href={base} class="text-sm text-zinc-400 hover:text-white">
+    <a href={withBase()} class="text-sm text-zinc-400 hover:text-white">
       ← Back to home
     </a>
     <button
