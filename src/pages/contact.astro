@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+---
+
+<Layout title="Contact" description={`Contact — ${site.name}`}>
+  <div class="max-w-3xl">
+    <h1 class="text-4xl font-bold tracking-tight">Contact</h1>
+
+    <dl class="mt-10 space-y-8">
+      <div>
+        <dt class="text-sm text-zinc-500">Email</dt>
+        <dd class="mt-1">
+          <a
+            href={`mailto:${site.email}`}
+            class="text-lg text-zinc-100 hover:text-white"
+          >
+            {site.email}
+          </a>
+        </dd>
+      </div>
+
+      <div>
+        <dt class="text-sm text-zinc-500">GitHub</dt>
+        <dd class="mt-1">
+          <a
+            href={site.github.url}
+            class="text-lg text-zinc-100 hover:text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            github.com/{site.github.handle.toLowerCase()}
+          </a>
+        </dd>
+      </div>
+
+      <div>
+        <dt class="text-sm text-zinc-500">Location</dt>
+        <dd class="mt-1 text-lg text-zinc-100">Iran</dd>
+      </div>
+
+      <div>
+        <dt class="text-sm text-zinc-500">Preferred contact method</dt>
+        <dd class="mt-1 text-lg text-zinc-100">{site.preferredContact}</dd>
+      </div>
+    </dl>
+
+    <section class="mt-12">
+      <h2 class="text-xl font-semibold">Open to</h2>
+      <ul class="mt-4 list-disc space-y-2 pl-5 text-zinc-300">
+        {site.openTo.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+  </div>
+</Layout>

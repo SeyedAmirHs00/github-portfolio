@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { skillGroups } from "../data/skills";
+import { site } from "../data/site";
+---
+
+<Layout title="Skills" description={`Skills — ${site.name}`}>
+  <div class="max-w-3xl">
+    <h1 class="text-4xl font-bold tracking-tight">Skills</h1>
+
+    <div class="mt-10 space-y-12">
+      {
+        skillGroups.map((group) => (
+          <section>
+            <h2 class="text-xl font-semibold">{group.title}</h2>
+            <ul class="mt-4 divide-y divide-zinc-800 border-y border-zinc-800">
+              {group.skills.map((skill) => (
+                <li class="flex items-center justify-between gap-4 py-3">
+                  <span class="text-zinc-200">{skill.name}</span>
+                  <span class="text-sm text-zinc-500">{skill.level}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

@@ -1,17 +1,20 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { bioParagraphs, bioQuote } from "../data/bio";
+import { site } from "../data/site";
 ---
 
-<Layout title="About">
+<Layout title="About" description={`About ${site.name}`}>
+  <article class="max-w-3xl">
+    <h1 class="text-4xl font-bold tracking-tight">About</h1>
+    <p class="mt-2 text-zinc-400">Short biography</p>
 
-<h1 class="text-4xl font-bold">
-About Me
-</h1>
+    <div class="mt-8 space-y-5 text-lg leading-relaxed text-zinc-300">
+      {bioParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
 
-<p class="mt-4">
-
-Write your biography here.
-
-</p>
-
+    <blockquote class="mt-10 border-l border-zinc-700 pl-4 text-zinc-300 italic">
+      {bioQuote}
+    </blockquote>
+  </article>
 </Layout>

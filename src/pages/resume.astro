@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+import { education } from "../data/education";
+import { skillGroups } from "../data/skills";
+import { timeline } from "../data/timeline";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title="Resume" description={`Resume — ${site.name}`}>
+  <div class="mb-8 flex flex-wrap items-center justify-between gap-4 print:hidden">
+    <a href={base} class="text-sm text-zinc-400 hover:text-white">
+      ← Back to home
+    </a>
+    <button
+      type="button"
+      id="print-resume"
+      class="cursor-pointer rounded-lg border border-zinc-100 bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-950 hover:bg-white"
+    >
+      Download PDF
+    </button>
+  </div>
+
+  <article class="resume max-w-3xl">
+    <header class="border-b border-zinc-800 pb-6">
+      <h1 class="text-4xl font-bold tracking-tight">{site.name}</h1>
+      <p class="mt-2 text-lg text-zinc-300">{site.title}</p>
+      <p class="mt-4 text-sm text-zinc-400">
+        {site.location}
+        {" · "}
+        <a href={`mailto:${site.email}`} class="hover:text-zinc-200">
+          {site.email}
+        </a>
+        {" · "}
+        <a
+          href={site.github.url}
+          class="hover:text-zinc-200"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {site.github.url.replace("https://", "")}
+        </a>
+      </p>
+    </header>
+
+    <section class="mt-8">
+      <h2 class="text-sm font-semibold tracking-wide text-zinc-500 uppercase">
+        Summary
+      </h2>
+      <p class="mt-3 leading-relaxed text-zinc-300">{site.summary}</p>
+      <p class="mt-3 text-zinc-400 italic">"{site.motto}"</p>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold tracking-wide text-zinc-500 uppercase">
+        Education
+      </h2>
+      <div class="mt-3">
+        <div class="flex flex-wrap items-baseline justify-between gap-2">
+          <h3 class="font-semibold text-zinc-100">{education.degree}</h3>
+          <p class="text-sm text-zinc-500">{education.period}</p>
+        </div>
+        <p class="text-zinc-300">{education.institution}</p>
+        <p class="text-sm text-zinc-500">{education.location}</p>
+        <p class="mt-2 text-sm text-zinc-400">GPA: {education.gpa}</p>
+        <ul class="mt-3 list-disc space-y-1 pl-5 text-sm text-zinc-300">
+          {education.honors.map((item) => <li>{item}</li>)}
+          {education.awards.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold tracking-wide text-zinc-500 uppercase">
+        Skills
+      </h2>
+      <div class="mt-3 space-y-4">
+        {
+          skillGroups.map((group) => (
+            <div>
+              <h3 class="text-sm font-medium text-zinc-200">{group.title}</h3>
+              <p class="mt-1 text-sm text-zinc-400">
+                {group.skills
+                  .map((skill) => `${skill.name} (${skill.level})`)
+                  .join(" · ")}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold tracking-wide text-zinc-500 uppercase">
+        Timeline
+      </h2>
+      <ul class="mt-3 space-y-2">
+        {
+          timeline.map((item) => (
+            <li class="grid grid-cols-[3.5rem_1fr] gap-3 text-sm">
+              <span class="font-medium text-zinc-500">{item.year}</span>
+              <span class="text-zinc-300">{item.event}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-sm font-semibold tracking-wide text-zinc-500 uppercase">
+        Open to
+      </h2>
+      <p class="mt-3 text-sm text-zinc-300">{site.openTo.join(" · ")}</p>
+    </section>
+  </article>
+</Layout>
+
+<script>
+  document.getElementById("print-resume")?.addEventListener("click", () => {
+    window.print();
+  });
+</script>

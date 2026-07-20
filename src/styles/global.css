@@ -11,3 +11,34 @@ body {
 a {
   @apply transition-colors;
 }
+
+@media print {
+  body {
+    @apply bg-white text-zinc-900;
+  }
+
+  header,
+  footer,
+  .print\:hidden {
+    display: none !important;
+  }
+
+  main {
+    @apply max-w-none px-0 py-0;
+  }
+
+  .resume,
+  .resume a {
+    color: #18181b !important;
+  }
+
+  .resume .text-zinc-300,
+  .resume .text-zinc-400,
+  .resume .text-zinc-500 {
+    color: #3f3f46 !important;
+  }
+
+  .resume .border-zinc-800 {
+    border-color: #d4d4d8 !important;
+  }
+}

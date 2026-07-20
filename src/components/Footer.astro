@@ -1,9 +1,22 @@
+---
+import { site } from "../data/site";
+---
+
 <footer class="border-t border-zinc-800 py-6">
-
-  <div class="mx-auto max-w-5xl px-6 text-sm text-zinc-400">
-
-    © {new Date().getFullYear()} Seyed Amir Hosseini
-
+  <div class="mx-auto flex max-w-5xl flex-col gap-2 px-6 text-sm text-zinc-400 sm:flex-row sm:items-center sm:justify-between">
+    <p>© {new Date().getFullYear()} {site.name}</p>
+    <div class="flex gap-4">
+      <a
+        href={site.github.url}
+        class="hover:text-zinc-200"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
+      </a>
+      <a href={`mailto:${site.email}`} class="hover:text-zinc-200">
+        Email
+      </a>
+    </div>
   </div>
-
 </footer>

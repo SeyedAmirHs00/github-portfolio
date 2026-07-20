@@ -1,20 +1,71 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { site } from "../data/site";
+
+const base = import.meta.env.BASE_URL;
+const resumeHref = `${base}${site.resumePath}`;
 ---
 
-<Layout
-  title="Home"
-  description="Personal website"
->
+<Layout title={site.name} description={site.description}>
+  <section class="max-w-3xl">
+    <p class="text-sm font-medium tracking-wide text-zinc-400 uppercase">
+      {site.title}
+    </p>
 
-<h1 class="text-5xl font-bold">
-    Hi, I'm Amir.
-</h1>
+    <h1 class="mt-3 text-5xl font-bold tracking-tight">
+      {site.name}
+    </h1>
 
-<p class="mt-6 text-lg text-zinc-400">
+    <p class="mt-6 text-lg leading-relaxed text-zinc-300">
+      {site.summary}
+    </p>
 
-Software Engineer • Open Source Enthusiast • Blogger
+    <p class="mt-4 text-zinc-400">
+      {site.location}
+    </p>
 
-</p>
+    <blockquote class="mt-8 border-l border-zinc-700 pl-4 text-zinc-300 italic">
+      "{site.motto}"
+    </blockquote>
 
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a
+        href={resumeHref}
+        class="rounded-lg border border-zinc-100 bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-950 hover:bg-white"
+      >
+        Download Resume
+      </a>
+      <a
+        href={`${base}contact`}
+        class="rounded-lg border border-zinc-700 px-5 py-2.5 text-sm font-medium text-zinc-100 hover:border-zinc-500"
+      >
+        Get in touch
+      </a>
+    </div>
+
+    <div class="mt-12 space-y-2 text-zinc-400">
+      <p>
+        <span class="text-zinc-500">GitHub</span>
+        {" · "}
+        <a
+          href={site.github.url}
+          class="text-zinc-200 hover:text-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {site.github.handle}
+        </a>
+      </p>
+      <p>
+        <span class="text-zinc-500">Email</span>
+        {" · "}
+        <a
+          href={`mailto:${site.email}`}
+          class="text-zinc-200 hover:text-white"
+        >
+          {site.email}
+        </a>
+      </p>
+    </div>
+  </section>
 </Layout>

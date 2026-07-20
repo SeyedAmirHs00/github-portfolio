@@ -1,0 +1,9 @@
+export const bioParagraphs = [
+  "My journey into Artificial Intelligence began with a passion for mathematics. During middle school, I became deeply fascinated by its logical structure and rigor, often spending entire days solving problems. There were periods when I studied mathematics for up to 12 hours a day, completing the middle school curriculum while still in the seventh grade before moving on to high school mathematics.",
+  "In high school, I pursued competitive programming by participating in the Iranian Olympiad in Informatics (IOI). I successfully advanced through the first and second stages and qualified for the final round in Tehran. Although I did not earn a medal, the experience strengthened my problem-solving skills, perseverance, and passion for computer science.",
+  "After the Olympiad, I shifted my focus to the Iranian university entrance examination, which led me to the Computer Science program at Khaje Nasir Toosi University of Technology (KNTU). Throughout my undergraduate studies, I particularly enjoyed courses in mathematics and computer science, building a strong theoretical foundation for my future work.",
+  "A turning point in my academic journey came during my bachelor's capstone project, when I had the opportunity to work with Dr. Abdolali. Under his guidance, I was introduced to Reinforcement Learning—a field that immediately captured my interest. Since then, Reinforcement Learning has become the primary focus of my research, while my curiosity continues to extend across the broader landscape of Artificial Intelligence.",
+  "Today, I am driven by the challenge of developing intelligent systems that learn, adapt, and solve complex real-world problems. I believe that the intersection of mathematics, computer science, and machine learning offers endless opportunities for discovery, and I remain committed to continuous learning and research.",
+] as const;
+
+export const bioQuote = "Learning never stops.";

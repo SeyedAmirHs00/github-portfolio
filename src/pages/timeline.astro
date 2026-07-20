@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { timeline } from "../data/timeline";
+import { site } from "../data/site";
+---
+
+<Layout title="Timeline" description={`Timeline — ${site.name}`}>
+  <div class="max-w-3xl">
+    <h1 class="text-4xl font-bold tracking-tight">Timeline</h1>
+
+    <ol class="relative mt-10 border-l border-zinc-800">
+      {
+        timeline.map((item) => (
+          <li class="relative pb-8 pl-8 last:pb-0">
+            <span class="absolute top-1.5 -left-[5px] size-2.5 rounded-full bg-zinc-500" />
+            <time class="text-sm font-medium text-zinc-500">{item.year}</time>
+            <p class="mt-1 text-zinc-200">{item.event}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</Layout>
